@@ -37,7 +37,7 @@ namespace GraficadorSeñales
             }
         }
 
-        public void truncar (double n)
+        public void truncar(double n)
         {
             foreach (Muestra muestra in Muestras)
             {
@@ -52,9 +52,9 @@ namespace GraficadorSeñales
             }
         }
 
-        public void escalar (double factor)
+        public void escalar(double factor)
         {
-            foreach(Muestra muestra in Muestras)
+            foreach (Muestra muestra in Muestras)
             {
                 muestra.Y *= factor;
             }
@@ -63,7 +63,7 @@ namespace GraficadorSeñales
         public void actualizarAmplitudMaxima()
         {
             AmplitudMaxima = 0;
-            foreach(Muestra muestra in Muestras)
+            foreach (Muestra muestra in Muestras)
             {
                 if (Math.Abs(muestra.Y) > AmplitudMaxima)
                 {
@@ -98,7 +98,7 @@ namespace GraficadorSeñales
                 indice++;
                 resultado.Muestras.Add(muestraResultado);
             }
-            
+
             return resultado;
         }
 
@@ -171,9 +171,9 @@ namespace GraficadorSeñales
                 double valorMuestra = 0;
                 for (int k = 0; k < operando2.Muestras.Count; k++)
                 {
-                    if ((n - k) >= 0 && (n - k) < operando2.Muestras.Count)
+                    if ((n + k) >= 0 && (n + k) < operando2.Muestras.Count)
                     {
-                        valorMuestra += operando1.Muestras[k].Y * operando2.Muestras[n - k].Y;
+                        valorMuestra += operando1.Muestras[k].Y * operando2.Muestras[n + k].Y;
                     }
                 }
                 valorMuestra /= resultado.FrecuenciaMuestreo;

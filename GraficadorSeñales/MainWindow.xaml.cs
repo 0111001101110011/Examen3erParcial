@@ -110,7 +110,7 @@ namespace GraficadorSeñales
             señal_2.TiempoInicial = tiempoInicial;
             señal_2.TiempoFinal = tiempoFinal;
             señal_2.FrecuenciaMuestreo = frecuenciaMuestreo;
-            
+
             señal.construirSeñalDigital();
             señal_2.construirSeñalDigital();
 
@@ -134,7 +134,7 @@ namespace GraficadorSeñales
                 señal.escalar(factorEscala);
             }
 
-            if((bool)ckb_Escala_2.IsChecked)
+            if ((bool)ckb_Escala_2.IsChecked)
             {
                 double factorEscala = double.Parse(txt_EscalaAmplitud.Text);
                 señal.escalar(factorEscala);
@@ -158,7 +158,7 @@ namespace GraficadorSeñales
             señal_2.actualizarAmplitudMaxima();
 
             // Definición de la amplitud máxima en función de la señal de mayor amplitud
-            if(señal.AmplitudMaxima > señal_2.AmplitudMaxima)
+            if (señal.AmplitudMaxima > señal_2.AmplitudMaxima)
             {
                 amplitudMaxima = señal.AmplitudMaxima;
             }
@@ -215,7 +215,7 @@ namespace GraficadorSeñales
                 case 0:
                     panelConfiguracion.Children.Add(new ConfiguracionSeñalSenoidal());
                     break;
-                    
+
                 // Señal Rampa
                 case 1:
                     break;
@@ -238,7 +238,7 @@ namespace GraficadorSeñales
         private void cb_TipoSeñal_SelectionChanged_2(object sender, SelectionChangedEventArgs e)
         {
             panelConfiguracion_2.Children.Clear();
-            switch(cb_TipoSeñal_2.SelectedIndex)
+            switch (cb_TipoSeñal_2.SelectedIndex)
             {
                 // Señal Senoidal
                 case 0:
@@ -247,7 +247,7 @@ namespace GraficadorSeñales
 
                 // Señal Rampa
                 case 1:
-                    
+
                     break;
 
                 // Señal Exponencial
@@ -284,10 +284,11 @@ namespace GraficadorSeñales
                     señalResultado = Señal.convolucion(señal, señal_2);
                     break;
 
-                // Correlación
+                // Convolución
                 case 3:
                     señalResultado = Señal.correlacion(señal, señal_2);
                     break;
+
                 default:
                     break;
             }
@@ -322,3 +323,4 @@ namespace GraficadorSeñales
         }
     }
 }
+
